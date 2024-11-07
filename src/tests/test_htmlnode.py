@@ -1,5 +1,7 @@
 import unittest
 
+import sys
+sys.path.append('/home/admin1620/static_generator/src') 
 from htmlnode import HTMLNode, LeafNode, ParentNode
 
 class TestHTMLNode(unittest.TestCase):

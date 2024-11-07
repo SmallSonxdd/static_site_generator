@@ -1,5 +1,7 @@
 import unittest
 
+import sys
+sys.path.append('/home/admin1620/static_generator/src') 
 from textnode import TextNode, TextType
 
 
