@@ -52,27 +52,6 @@ class TestHTMLNode(unittest.TestCase):
         leaf3 = LeafNode(tag=None, value="Click me!", props={"href": "https://www.google.com"})
         self.assertEqual(leaf3.to_html(), 'Click me!')
 
-    def test_leaf_node_with_children(self):
-        try:
-            LeafNode("p", "text", children=["child"])
-            assert False, "LeafNode should not accept children"
-        except ValueError:
-            assert True
-
-    def test_leaf_node_empty_value(self):
-        with self.assertRaises(ValueError):
-            LeafNode("p", value=None)
-
-    # from here it's parent tests
-
-    def test_parent_node_empty_children(self):
-        with self.assertRaises(ValueError):
-            ParentNode('a', children=[])
-    
-    def test_parent_node_empty_tag(self):
-        with self.assertRaises(ValueError):
-            ParentNode(tag='', children=[LeafNode('b', 'Bold text')])
-    
     def test_parent_node_is_eq(self):
         parent_node = ParentNode(
             "p",

@@ -11,7 +11,7 @@ def block_to_block_type(markdown_block):
         if block_copy[count] == ' ':
             return f'h{count}'
     
-    if block_copy[0:3] == '```' and block[-1:-4:-1] == '```':
+    if block_copy[0:3] == '```' and block_copy[-1:-4:-1] == '```':
         return 'CODE'
     
     if block_copy[0:2] == '> ':
@@ -23,7 +23,7 @@ def block_to_block_type(markdown_block):
                 break
         return block_is_quote
     
-    if block_copy[0:2] == ('* ' or '- '):
+    if block_copy[0:2] in [('* '), ('- ')]:
         copy_list = block_copy.split('\n')
         block_is_unordered = 'UNORDERED LIST'
         for line in copy_list:
