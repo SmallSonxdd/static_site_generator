@@ -1,8 +1,12 @@
-from textnode import TextNode, TextType
+import os
+import sys
+import shutil
+from generate_page import *
+
 
 def main():
-    text_node = TextNode('This is a text node', TextType.BOLD, 'https://www.boot.dev')
-    print(text_node)
-    pass
+    source_to_destination('static', 'public')
+    generate_pages_recursive('content', 'template.html', 'public')
 
-main()
+if __name__ == "__main__":
+    main()
